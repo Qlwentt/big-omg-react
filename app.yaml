@@ -8,13 +8,3 @@ handlers:
   - url: /.*
     static_files: build/index.html
     upload: build/index.html
-
-skip_files:
-  - ^(.*/)?\.env$
-  - ^(.*/)?\.git$
-  - ^(.*/)?\.gitignore$
-  - ^(.*/)?\.gcloudignore$
-  - ^(.*/)?npm-debug.log$
-  - ^(.*/)?yarn-error.log$
-  - ^(.*/)?yarn.lock$
-  - ^(.*/)?node_modules/$
