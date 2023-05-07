@@ -11,6 +11,7 @@ const Label = styled.h3`
   font-size: 1.5rem;
   font-weight: 400;
   color: #ffffff;
+  font-family: "Rubik", sans-serif;
 `;
 
 const TimeComplexity = styled.div`

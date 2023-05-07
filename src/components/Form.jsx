@@ -1,12 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
-import Button from "react-bootstrap/Button";
 
 import useFetchBigO from "../hooks/useFetchBigO";
 import AppContext from "../helpers/appContext";
 
-const AnalyzeButton = styled(Button)`
+const AnalyzeButton = styled.button`
   margin: 15px;
+  background-color: #4a2afa;
+  color: #fff;
+  padding 5px 10px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: 0.5s;
+  font-family: "Rubik", sans-serif;
 `;
 
 const CodeArea = styled.textarea`
@@ -14,7 +21,7 @@ const CodeArea = styled.textarea`
   border-radius: 5px;
   width: 100%;
   min-height: 500px;
-  background-color: #222120;
+  background-color: #02000f;
   color: #ffffff;
 `;
 const StyledForm = styled.form`

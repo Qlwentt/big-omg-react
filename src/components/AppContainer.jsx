@@ -10,10 +10,10 @@ import Logo from "./Logo";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #222120;
+    background-color: #02000f;
     margin: 0;
     height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: sans-serif;
   }
 `;
 

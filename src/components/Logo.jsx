@@ -6,11 +6,13 @@ const StyledLogo = styled.span`
   h1 {
     color: #ffffff;
     display: inline-block;
+    font-size: 30px;
+    font-family: "Rubik", sans-serif;
   }
 `;
 
 const IconWrapper = styled.span`
-  color: #0d6efd;
+  color: #4a2afa;
   font-size: 2rem;
   margin-right: 10px;
 `;
