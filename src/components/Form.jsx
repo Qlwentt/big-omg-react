@@ -23,6 +23,7 @@ const CodeArea = styled.textarea`
   min-height: 500px;
   background-color: #02000f;
   color: #ffffff;
+  font-family: "Source Code Pro", monospace;
 `;
 const StyledForm = styled.form`
   display: flex;
