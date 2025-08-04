@@ -15,6 +15,7 @@ const AnalyzeButton = styled.button`
   font-family: "Rubik", sans-serif;
   height: 40px;
   margin: 0;
+  width: 200px;
 `;
 
 const CodeArea = styled.textarea`
@@ -47,7 +48,7 @@ const FormWrapper = styled.div`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   height: 100%;
   gap: 10px;
 `;
