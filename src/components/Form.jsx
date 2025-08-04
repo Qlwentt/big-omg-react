@@ -99,11 +99,11 @@ function Form() {
           required
         >
           <option value="" disabled hidden>
-            Model
+            Choose your model
           </option>
 
           <option value="claude-opus-4-20250514">Claude Opus 4</option>
-          <option value="gpt-4">GPT-4</option>
+          <option value="gpt-4.1">GPT-4.1</option>
         </ModelArea>
         <CodeArea
           id="code-area"
