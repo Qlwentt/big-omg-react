@@ -26,7 +26,7 @@ const TimeComplexity = styled.div`
 const Explanation = styled.div`
   border: 1px solid #797979;
   color: #ffffff;
-  flex: 1 1 auto;
+  flex: 1 1 0px;
   min-height: 0;
   overflow: scroll;
   padding: 15px;

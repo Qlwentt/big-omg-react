@@ -48,15 +48,10 @@ const FullHeightRow = styled(Row)`
   flex: 1;
   min-height: 0;
   align-items: stretch;
-  height: calc(100vh - 100px);
 `;
 
 const FullHeightCol = styled(Col)`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
-  overflow: hidden;
+  margin-bottom: 15px;
 `;
 
 function AppContainer() {
