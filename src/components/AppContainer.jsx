@@ -9,16 +9,23 @@ import Form from "./Form";
 import Logo from "./Logo";
 
 const GlobalStyle = createGlobalStyle`
+  html, body, #root {
+    height: 100%;
+    min-height: 0;
+  }
   body {
     background-color: #02000f;
     margin: 0;
-    height: 100vh;
     font-family: sans-serif;
   }
 `;
 
 const StyledContainer = styled(Container)`
   width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 `;
 
 const LoadingOverlay = styled(Spinner)`
@@ -32,6 +39,26 @@ const LoadingOverlay = styled(Spinner)`
   background-color: white;
 `;
 
+const LogoRow = styled(Row)`
+  flex: 0 0 auto;
+  min-height: 0;
+`;
+
+const FullHeightRow = styled(Row)`
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+  height: calc(100vh - 100px);
+`;
+
+const FullHeightCol = styled(Col)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+`;
+
 function AppContainer() {
   const { isLoading } = useContext(AppContext);
 
@@ -39,19 +66,19 @@ function AppContainer() {
     <>
       <GlobalStyle />
       <StyledContainer>
-        <Row>
+        <LogoRow>
           <Col xl="12" lg="12" md="12" sm="6">
             <Logo />
           </Col>
-        </Row>
-        <Row>
-          <Col xl="6" lg="6" md="6" sm="12">
+        </LogoRow>
+        <FullHeightRow>
+          <FullHeightCol xl="6" lg="6" md="6" sm="12">
             <Form />
-          </Col>
-          <Col xl="6" lg="6" md="6" sm="12">
+          </FullHeightCol>
+          <FullHeightCol xl="6" lg="6" md="6" sm="12">
             <AnswerArea />
-          </Col>
-        </Row>
+          </FullHeightCol>
+        </FullHeightRow>
       </StyledContainer>
       {isLoading && <LoadingOverlay />}
     </>

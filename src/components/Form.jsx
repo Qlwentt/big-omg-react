@@ -5,39 +5,65 @@ import useFetchBigO from "../hooks/useFetchBigO";
 import AppContext from "../helpers/appContext";
 
 const AnalyzeButton = styled.button`
-  margin: 15px;
   background-color: #4a2afa;
   color: #fff;
-  padding 5px 10px;
+  padding: 5px 10px;
   outline: none;
   border-radius: 4px;
   border: 1px solid transparent;
   transition: 0.5s;
   font-family: "Rubik", sans-serif;
+  height: 40px;
+  margin: 0;
 `;
 
 const CodeArea = styled.textarea`
   border: 1px solid #ffffff;
   border-radius: 5px;
   width: 100%;
-  min-height: 500px;
+  flex: 1 1 0;
+  min-height: 0;
   background-color: #02000f;
   color: #ffffff;
   font-family: "Source Code Pro", monospace;
+  resize: none;
+  overflow: auto;
 `;
+const ModelArea = styled.select`
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: #02000f;
+  color: #ffffff;
+`;
+
+const FormWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  height: 100%;
+  gap: 10px;
 `;
 function Form() {
   const [code, setCode] = useState("");
+  const [model, setModel] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutate({ code });
+    mutate({ code, model });
   };
   const handleChange = (e) => {
     setCode(e.target.value);
+  };
+
+  const handleModelChange = (e) => {
+    setModel(e.target.value);
   };
 
   const triggerAlert = () => {
@@ -52,8 +78,7 @@ function Form() {
 
   const { setBigOData, setIsLoading } = useContext(AppContext);
 
-  const defaultCode =
-    "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        numsDict = {}\n        for i, num in enumerate(nums):\n            complement = target - num\n            foundIndex = numsDict.get(complement, None)\n            if foundIndex is not None:\n                return [foundIndex, i]\n            else:\n                numsDict[num] = i";
+  const defaultCode = "code goes here";
 
   useEffect(() => {
     setBigOData(data);
@@ -64,8 +89,22 @@ function Form() {
   }, [isLoading, setIsLoading]);
 
   return (
-    <div>
+    <FormWrapper>
       <StyledForm onSubmit={handleSubmit}>
+        <ModelArea
+          id="model-area"
+          name="model-area"
+          onChange={handleModelChange}
+          value={model}
+          required
+        >
+          <option value="" disabled hidden>
+            Model
+          </option>
+
+          <option value="claude-opus-4-20250514">Claude Opus 4</option>
+          <option value="gpt-4">GPT-4</option>
+        </ModelArea>
         <CodeArea
           id="code-area"
           type="text"
@@ -77,7 +116,7 @@ function Form() {
         />
         <AnalyzeButton type="submit">Analyze</AnalyzeButton>
       </StyledForm>
-    </div>
+    </FormWrapper>
   );
 }
 
